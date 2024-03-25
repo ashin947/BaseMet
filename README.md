@@ -15,3 +15,26 @@ BiocManager::install("ggraph")		#v2.1.0
 BiocManager::install("igraph")		#v1.5.1
 BiocManager::install("clusterProfiler")		#v4.8.3
 BiocManager::install("enrichplot")		#v1.20.3
+
+install.packages("D:/project/rpackages/BaseMet_1.01.tar.gz", repos = NULL, type = "source")
+library(BaseMet)
+getwd(
+  
+)
+setwd("D:/project/rpackages/")
+
+input_martix="test.xlsx"
+ALLsample="ALLTYPE.txt"
+group_sample="TYPE.txt"
+foldChange=0.585
+padj=0.05
+SELECT="PValue"# or FDR
+group_meta="Type2.xlsx"
+
+pca_plot(input_martix,ALLsample)
+call_diff(group_sample, input_martix)
+heatmap_cor(group_sample, input_martix,group_meta)
+pie_plot(group_meta)
+QC_plot(group_sample, input_martix)
+ggraph_plot(input_martix,group_meta,group_sample)
+kegg_plot(input_martix,group_meta,group_sample)
